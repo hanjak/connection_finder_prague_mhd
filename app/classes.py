@@ -1,3 +1,4 @@
+
 import datetime
 from datetime import datetime
 
@@ -123,20 +124,25 @@ class Stop:
     def __init__(self, stop_name):
         self.stop_name = stop_name
         self.routes = []
-        self.best_arrival_time = datetime.strptime('23:59:59', '%H:%M:%S')
-        self.departure_time = time1
+        self.best_arr = datetime.strptime('23:59:59', '%H:%M:%S')
+        self.departure_time = None
         self.marked = False
-        self.previous = None
+        self.previous_stop = None
+        self.previous_line = None
+        self.previous_dep = None
 
     def get_path(self):
-        path = [(self.stop_name,self.best_arrival_time,None,None)]
+        path = [(self.stop_name,self.best_arr,None,None)]
         stop=self
-        while stop.previous:
+        while stop.previous_stop:
             #(stop_name, arrival time, departure_time, line)
-            path.append((stop.previous[0].stop_name,
-                         stop.previous[0].best_arrival_time,
-                         stop.previous[1],
-                         stop.previous[2]))
-            stop = stop.previous[0]
+            path.append((stop.previous_stop.stop_name,
+                         stop.previous_stop.best_arr,
+                         stop.previous_dep,
+                         stop.previous_line))
+            stop = stop.previous_stop
         path.reverse()
         return path
+
+
+
