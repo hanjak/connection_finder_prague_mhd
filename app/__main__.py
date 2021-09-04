@@ -1,7 +1,7 @@
 from helpers import *
 from classes import *
 from raptor import raptor
-source = "timetable.csv"
+source = "data/timetable.csv"
 
 def main():
     print ("main")
