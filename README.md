@@ -20,13 +20,15 @@ The CLI app requires following inputs:
 2) start_time must be entered in form of HH:MM:SS. (TODO: problem with encoding, to be resolved - If not working, please try to use english keybord)
 3) allowed_number_of_transfers must be in form of integer (1:10)
 
-Input:
+Input
+
 Please enter start station: Florenc
 Please enter target station: Motol
 Please enter start time in form HH:MM:SS   :   13:33:33
 Please enter maximum allowed transfers in form of number in range (0,10): 2
 
-Output:
+Output
+
 stop: Florenc,  departure time: 13:34:20,  take line: B  
 stop: Anděl,  arrival time: 13:41:20,  departure time: 13:43:00,  change to line: 9  
 stop: Motol,  arrival time: 13:55:00  
