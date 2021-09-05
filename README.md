@@ -1,5 +1,5 @@
 # connection_finder_prague
-Python implementation of troute based public transport routing algorithm - RAPTOR in form of CLI app myraptor
+Python implementation of route based public transport routing algorithm - RAPTOR in form of CLI app myraptor
 ## Introduction
 The  app implements the Raptor routing algorithm using public transit data in GTFS format. It uses data on Prague public transport.
 ## Algorithm
