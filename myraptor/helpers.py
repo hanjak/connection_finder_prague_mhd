@@ -9,28 +9,28 @@ def time_to_str(time):
 def path_to_str(path, start_stop, target_stop):
     """ Prints the path from the start_stop to the target_stop in
      readable format"""
-    for a in path:
-        if a[0] == start_stop.stop_name:
-            stop_name = a[0]
-            departure_time = time_to_str(a[2])
-            line = a[3]
+    for station in path:
+        if station[0] == start_stop.stop_name:
+            stop_name = station[0]
+            departure_time = time_to_str(station[2])
+            line = station[3]
             path_str = (
                 f"stop: {stop_name},  "
                 f"departure time: {departure_time},  "
                 f"take line: {line}  "
             )
-        elif a[0] == target_stop.stop_name:
-            stop_name = a[0]
-            arrival_time = time_to_str(a[1])
+        elif station[0] == target_stop.stop_name:
+            stop_name = station[0]
+            arrival_time = time_to_str(station[1])
             path_str = (
                 f"stop: {stop_name},  "
                 f"arrival time: {arrival_time}  "
             )
         else:
-            stop_name = a[0]
-            arrival_time = time_to_str(a[1])
-            departure_time = time_to_str(a[2])
-            line = a[3]
+            stop_name = station[0]
+            arrival_time = time_to_str(station[1])
+            departure_time = time_to_str(station[2])
+            line = station[3]
             path_str = (
                 f"stop: {stop_name},  "
                 f"arrival time: {arrival_time},  "
@@ -85,6 +85,7 @@ def binary_search(dep_times_list, start_time):
 
 
 def read_timetable(source):
+    """Reads Timetable object from source file, returns Timetable object"""
     try:
         reading = open(source,"rb")
         tb = pickle.load(reading)
@@ -93,7 +94,15 @@ def read_timetable(source):
     except IOError:
         print("Error: File containing Timetable data does not appear to exist.")
 
-
+def read_timetable_test():
+    """Reads Timetable object from source file, returns Timetable object"""
+    try:
+        reading = open('tests/data/timetable_metro_test.csv',"rb")
+        tb = pickle.load(reading)
+        reading.close()
+        return tb
+    except IOError:
+        print("Error: File containing Timetable data does not appear to exist.")
 
 
 def load_start_stop (tb):
@@ -118,6 +127,8 @@ def load_target_stop (tb):
             print ("Not valid name of the station, please start again")
             print (tb.stop_names)
 
+
+
 def load_start_time ():
     """Asks the user to type start_time in form HH:MM:SS """
     while True:
@@ -125,6 +136,9 @@ def load_start_time ():
         try:
             time = datetime.strptime(start_time, '%H:%M:%S')
             return time
+        except UnicodeDecodeError:
+            start_time.encode("latin-1", "ignore")
+            time = datetime.strptime(start_time, '%H:%M:%S')
         except:
             print ("Not valid format of time")
 
@@ -136,6 +150,9 @@ def load_transfers ():
                           " number in range (0,10): ")
         try:
             return int(transfers)
+        except UnicodeDecodeError:
+            transfers.encode("latin-1", "ignore")
+            return(int(transfers))
         except ValueError:
             print ("This is not a number")
 

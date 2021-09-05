@@ -35,7 +35,7 @@ class Timetable:
 
     def get_route(self, raptor_id):
         """
-        Recieves raptor id (str), returns corresponding Route object
+        Recieves myraptor id (str), returns corresponding Route object
         Parameter: raptor_id (str)
         Returns: Route object
         """

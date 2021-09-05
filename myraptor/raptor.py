@@ -2,7 +2,7 @@ from helpers import *
 
 def raptor(tb,start_stop_name,target_stop_name,start_time,max_transfers):
     """
-    Function representing the raptor algorithm
+    Function representing the myraptor algorithm
     Parameters: tb (Timetable object)
         start_stop_name (str)
         target_stop_name (str)

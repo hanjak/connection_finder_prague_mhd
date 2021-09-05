@@ -1,7 +1,7 @@
 from helpers import *
 from classes import *
 from raptor import raptor
-source = "data/timetable.csv"
+source = "myraptor/data/timetable_metro_tram_bus.csv"
 
 def main():
     print ("main")
@@ -10,7 +10,7 @@ def main():
     target_stop_name = load_target_stop(tb)
     start_time = load_start_time()
     transfers = load_transfers()
-    result = raptor(tb,start_stop_name,target_stop_name,start_time,transfers)
+    raptor(tb,start_stop_name,target_stop_name,start_time,transfers)
 
 
 
