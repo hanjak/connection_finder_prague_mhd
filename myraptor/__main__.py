@@ -4,7 +4,6 @@ from raptor import raptor
 source = "myraptor/data/timetable_metro_tram_bus.csv"
 
 def main():
-    print ("main")
     tb = read_timetable(source)
     start_stop_name = load_start_stop(tb)
     target_stop_name = load_target_stop(tb)

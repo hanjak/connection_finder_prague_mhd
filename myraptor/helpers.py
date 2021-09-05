@@ -132,12 +132,14 @@ def load_target_stop (tb):
 def load_start_time ():
     """Asks the user to type start_time in form HH:MM:SS """
     while True:
-        start_time = input("Please enter start time in form HH:MM:SS   :   ")
+        start_time = input(
+            "Please enter start time in form HH:MM:SS   :   ")
         try:
             time = datetime.strptime(start_time, '%H:%M:%S')
             return time
         except UnicodeDecodeError:
             start_time.encode("latin-1", "ignore")
+            print (start_time)
             time = datetime.strptime(start_time, '%H:%M:%S')
         except:
             print ("Not valid format of time")
@@ -146,11 +148,11 @@ def load_transfers ():
     """Asks the user to type maximum number of transfers allowed"""
     #TODO: check if the number is right
     while True:
-        transfers = input("Please enter maximum allowed transfers in form of"
-                          " number in range (0,10): ")
+        transfers = input("Please enter maximum allowed transfers in form of number in range (0,10): ")
         try:
             return int(transfers)
         except UnicodeDecodeError:
+            print("unicode")
             transfers.encode("latin-1", "ignore")
             return(int(transfers))
         except ValueError:

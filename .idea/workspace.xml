@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e0d59671-319f-4b32-9865-64434ec343b3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__version__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/__version__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/raptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/raptor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/test_helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/timetable.csv" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/data/timetable.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/timetable_metro_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/timetable_metro_tram_bus.csv" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/data/timetable_metro_tram_bus.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myraptor/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myraptor/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/myraptor/helpers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
