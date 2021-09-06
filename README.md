@@ -37,4 +37,8 @@ stop: Motol,  arrival time: 13:55:00
 ## Technologies
 The project is written in Python 3.9
 
+## Requirements
+python >= 3.6
+
 ## Instalation
+
