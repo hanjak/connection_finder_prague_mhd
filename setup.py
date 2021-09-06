@@ -21,6 +21,6 @@ setup(name='myraptor',
       author_email='hanja.kosova@gmail.com',
       license='MIT',
       packages=['myraptor'],
-      install_requires=get_install_requires(),
+      install_requires=[],
       keywords='raptor connection finder'
       )
