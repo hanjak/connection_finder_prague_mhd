@@ -1,6 +1,6 @@
-
 import datetime
 from datetime import datetime
+import sys
 
 
 
@@ -81,15 +81,16 @@ class Trip:
         trip_id
         number_of_stops
         route: route on which the trip operates
-        stop_times: list, ordered sequence of arrival and departure times at
-        all stops the trip contains
-        (arrival_stop1,departure_stop1,arrival_stop2,departure_stop2,....)
+        stop_times_arr,stop_times_dep list, ordered sequence of arrival
+         and departure times at all stops the trip contains
+        (arrival_stop1,arrival_stop2,arrival_stop3,....)
     """
     def __init__(self, trip_id, route):
         self.trip_id = trip_id
         self.number_stops = 0
         self.route = route
-        self.stop_times = []
+        self.stop_times_arr = []
+        self.stop_times_dep = []
 
     def get_stop_index(self, stop):
         """Returns index of given stop in the list route.stop_names
@@ -105,7 +106,7 @@ class Trip:
         Parameter: Stop object
         Returns: index (int)
         """
-        index = self.get_stop_index(stop) * 2
+        index = self.get_stop_index(stop)
         return index
 
     def get_arr(self, stop):
@@ -114,7 +115,7 @@ class Trip:
         Parameter: Stop object
         Returns: arrival_time (datetime object)
         """
-        return self.stop_times[self.get_arr_index(stop)]
+        return self.stop_times_arr[self.get_arr_index(stop)]
 
     def get_dep_index(self, stop):
         """
@@ -122,7 +123,7 @@ class Trip:
         Parameter: Stop object
         Returns: index (int)
         """
-        index = self.get_arr_index(stop) + 1
+        index = self.get_stop_index(stop)
         return index
 
     def get_dep(self, stop):
@@ -131,7 +132,7 @@ class Trip:
         Parameter: Stop object
         Returns: departure_time (datetime object)
         """
-        dep = self.stop_times[self.get_dep_index(stop)]
+        dep = self.stop_times_dep[self.get_dep_index(stop)]
         return dep
 
 
@@ -152,7 +153,7 @@ class Route:
         self.name = None
         self.number_stops = 0
         self.number_trips = 0
-        self.stop_names = []
+        self.stop_names = None
         self.trip_ids = []
 
 
@@ -172,36 +173,18 @@ class Route:
         sequence = self.get_stop_index(stop.stop_name) + 1
         return sequence
 
-    def create_departure_list(self, stop, arr_depp_list):
+    def create_departure_list(self, stop):
         """Returns list of upward ordered departures from given stop of all
          trips belonging to the route
-         Parameters: Stop object, arr_depp_list (list)
+         Parameters: Stop object
          Returns departures (list)"""
-        stop_sequence = self.get_stop_sequence(stop.stop_name)
-        index_first_arrival = 2 * (stop_sequence - 1)
-        index_first_departure = index_first_arrival + 1
         departures = []
-        for trip in range(self.number_trips):
-            index = index_first_departure + trip * self.number_stops * 2
-            departures.append(arr_depp_list[index])
+        for trip in self.trip_ids:
+            dep = trip.get_dep(stop)
+            departures.append(dep)
         return departures
 
-    def find_arrival_time(self, stop, trip_sequence, arr_dep):
-        #TODO: zjistit kde pouzivam
-        """Returns arrival time for given stop and trip
-        Parameters: Stop object
-                    trip_sequence (integer, sequence of the trip in the list
-                     trip_ids)
-                     arr_dep (list of arrivals and departures)"""
-        stop_sequence = self.get_stop_sequence(stop)
-        #the arr_dep list is in form
-        # [arrtrip1stop1,deptrip1stop1,arrtrip1stop2,deptrip1stop2....
-        #..arrtrip2stop1,deptrip2stop1,arrtrip2stop2,deptrip2stop2....]
-        arrival_index = 2 * (stop_sequence - 1) + \
-                        (trip_sequence - 1) * \
-                        (self.number_stops)
-        arrival_time = arr_dep[arrival_index]
-        return arrival_time
+
 
     def get_rest_stops(self, stop):
         """Returns ordered list of stop_names which follow after the given
@@ -216,6 +199,7 @@ class Stop:
     """Class representing Stops
         Attributes:
             stop_name (str)
+            routes (list, containes all routes serving the stop)
             best_arr (datetime object, set to max, changed if improved)
             dep_time (datetime object)
             marked (bool, marked = True if the stations best_arr was improved)
@@ -226,7 +210,7 @@ class Stop:
     def __init__(self, stop_name):
         self.stop_name = stop_name
         self.routes = []
-        self.best_arr = datetime.strptime('23:59:59', '%H:%M:%S')
+        self.best_arr = sys.maxsize
         self.dep_time = None
         self.marked = False
         self.previous_stop = None

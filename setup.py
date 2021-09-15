@@ -1,11 +1,5 @@
 from setuptools import setup
 
-
-
-def get_install_requires():
-    with open('requirements.txt') as f:
-        return [req.strip() for req in f]
-
 def get_long_description():
     with open('README.md') as f:
         long_description = f.read()
@@ -13,7 +7,7 @@ def get_long_description():
 REQUIREMENTS = ['requests']
 
 setup(name='myraptor',
-      version='1.0.0',
+      version='3.0.1',
       description='Prague public transport connection finder using RAPTOR algorithm',
       long_description=get_long_description(),
       url='https://github.com/hanjak/connection_finder_prague_mhd',
@@ -21,6 +15,8 @@ setup(name='myraptor',
       author_email='hanja.kosova@gmail.com',
       license='MIT',
       packages=['myraptor'],
-      install_requires=get_install_requires(),
-      keywords='raptor connection finder'
+      install_requires=['pandas==1.3.2','numpy==1.21.2'],
+      keywords='raptor connection finder',
+      include_package_data=True,
+      package_data={'myraptor':['data/data.csv','data/data_stops.csv']},
       )
