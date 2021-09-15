@@ -43,9 +43,9 @@ stop: Motol,  arrival time: 13:55:00
 
 #### Install the package with pip:
 
-~$ pip install myraptor==3.0.1
+$ pip install myraptor==3.0.1
 
-~$ python -m myraptor
+$ python -m myraptor
 
 #### OR Clone the repository:
 $ git clone https://github.com/hanjak/connection_finder_prague_mhd
