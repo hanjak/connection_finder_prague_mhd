@@ -40,9 +40,17 @@ stop: Anděl,  arrival time: 13:41:20,  departure time: 13:43:00,  change to lin
 stop: Motol,  arrival time: 13:55:00  
 
 ## Installation
+
+### Install the package with pip:
+
 ~$ pip install myraptor==3.0.1
 
 ~$ python -m myraptor
+
+### OR Clone the repository:
+$ git clone https://github.com/hanjak/connection_finder_prague_mhd
+$ cd connection_finder_prague_mhd/
+$ python myraptor
 
 ## Technologies
 The project is written in Python 3.9
