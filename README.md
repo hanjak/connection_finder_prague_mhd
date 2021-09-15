@@ -62,9 +62,9 @@ The project is written in Python 3.9
 ## Requirements
 python >= 3.6
 
-pandas==1.3.2
+pandas>=1.3.2
 
-numpy==1.21.2
+numpy>=1.21.2
 
 ## Licence
 Mypy is licensed under the terms of the MIT License 
