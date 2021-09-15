@@ -5,8 +5,15 @@ Python implementation of route based public transport routing algorithm - RAPTOR
 The  app implements the RAPTOR routing algorithm using public transit data in GTFS format. It uses data on Prague public transport.
 
 ## Algorithm
-The connection search algorithm used in this project is based on RAPTOR-Round (based Public Transit Optimized Router) algorithm (available at: https://renatowerneck.files.wordpress.com/2016/06/dpw14-raptor.pdf). The algorithm is NOT based on graph.
+The connection search algorithm used in this project is based on RAPTOR-Round (bAsed Public Transit Optimized Router) algorithm (available at: https://renatowerneck.files.wordpress.com/2016/06/dpw14-raptor.pdf). The algorithm is NOT based on graph.
 Instead, it operates in rounds, one per transfer, and computes arrival times by traversing every route (such as an underground line) at most once per round.
+
+The algorithm works as follow:
+For allowed number of transfers, it runs loop with following steps:  
+      A) Get all currently reachable stops (initially, just the start stop) and find associated routes and for each route the soonest available trip (dependent on              arrival time to the stop).  
+      B) For all stops reachable by previously found trip, use arrival and departure data to figure out how long to reach other stops in the trip. The reached stops             are marked as reachable for next round.  
+
+Alogrithm used in this project doesn't include footsteps, transfer time, and timetable dependent on particular dates (e.g.weekends).
 
 ## Data
 Data used in this project are GTFS data publicly available at: https://opendata.iprpraha.cz/DPP/JR/jrdata.zip. Data are processed with jupyter notebook, and saved in 'data/data.csv' and 'data/data_stops.csv'. Due to large amount of data needed to be processed, the app uses preprocessed data. The preprocessing can be seen in 
