@@ -34,6 +34,7 @@ stop: Motol,  arrival time: 13:55:00
 
 ## Installation
 ~$ pip install myraptor==3.0.1
+
 ~$ python -m myraptor
 
 ## Technologies
