@@ -30,7 +30,7 @@ def raptor(tb,start_stop_name,target_stop_name,start_time,max_transfers):
         stop_queue_previous = stop_queue
         while stop_queue_previous:
     # 3) First part of round: sets the current time to the best arrival time
-    #                         from the previous round
+    #    from the previous round
             stop_queue = []
             current_stop = stop_queue_previous.pop()
             current_time = current_stop.best_arr
@@ -38,11 +38,9 @@ def raptor(tb,start_stop_name,target_stop_name,start_time,max_transfers):
     # 4) Second part of the round: processing of the routes
             while route_queue:
                 route = route_queue.pop()
+
                 #selection of data departure data concerning only current stop
-                dep_current_stop = []
-                for trip in route.trip_ids:
-                    dep = trip.get_dep(current_stop)
-                    dep_current_stop.append(dep)
+                dep_current_stop = route.create_departure_list(current_stop)
                 #selection of best departure time from current stop
                 if dep_current_stop == []:
                     continue
@@ -67,4 +65,5 @@ def raptor(tb,start_stop_name,target_stop_name,start_time,max_transfers):
     if target_stop.marked == False:
         print ("It is not possible to find the connection, try more"
                " transfers!")
+        return None
     return (path_to_str(target_stop.get_path(),start_stop,target_stop))
