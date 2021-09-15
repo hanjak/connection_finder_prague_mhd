@@ -15,8 +15,11 @@ setup(name='myraptor',
       author_email='hanja.kosova@gmail.com',
       license='MIT',
       packages=['myraptor'],
+
       install_requires=['pandas==1.3.2','numpy==1.21.2'],
       keywords='raptor connection finder',
       include_package_data=True,
       package_data={'myraptor':['data/data.csv','data/data_stops.csv']},
       )
+
+
