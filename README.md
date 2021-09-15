@@ -50,6 +50,8 @@ $ python -m myraptor
 #### OR Clone the repository:
 $ git clone https://github.com/hanjak/connection_finder_prague_mhd
 
+$ pip install -r requirements.txt
+
 $ cd connection_finder_prague_mhd/
 
 $ python myraptor
