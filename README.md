@@ -2,7 +2,7 @@
 Python implementation of route based public transport routing algorithm - RAPTOR in form of CLI app myraptor
 
 ## Introduction
-The  app implements the Raptor routing algorithm using public transit data in GTFS format. It uses data on Prague public transport.
+The  app implements the RAPTOR routing algorithm using public transit data in GTFS format. It uses data on Prague public transport.
 
 ## Algorithm
 The connection search algorithm used in this project is based on RAPTOR-Round (based Public Transit Optimized Router) algorithm (available at: https://renatowerneck.files.wordpress.com/2016/06/dpw14-raptor.pdf). The algorithm is NOT based on graph.
@@ -32,6 +32,10 @@ stop: Florenc,  departure time: 13:34:20,  take line: B
 stop: Anděl,  arrival time: 13:41:20,  departure time: 13:43:00,  change to line: 9  
 stop: Motol,  arrival time: 13:55:00  
 
+## Installation
+~$ pip install myraptor==3.0.1
+~$ python -m myraptor
+
 ## Technologies
 The project is written in Python 3.9
 
@@ -39,9 +43,6 @@ The project is written in Python 3.9
 python >= 3.6
 pandas==1.3.2
 numpy==1.21.2
-
-## Installation
-pip install myraptor==3.0.1
 
 ## Licence
 Mypy is licensed under the terms of the MIT License 
