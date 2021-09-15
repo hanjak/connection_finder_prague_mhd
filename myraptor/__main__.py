@@ -1,15 +1,36 @@
+import pkgutil
+from copy import deepcopy
+
 from helpers import *
 from classes import *
 from raptor import raptor
-source = "myraptor/data/timetable_metro_tram_bus.csv"
+from create_tb import *
+
+
+source_data = 'data/data.csv'
+source_data_stops = 'data/data_stops.csv'
 
 def main():
-    tb = read_timetable(source)
-    start_stop_name = load_start_stop(tb)
-    target_stop_name = load_target_stop(tb)
-    start_time = load_start_time()
-    transfers = load_transfers()
-    raptor(tb,start_stop_name,target_stop_name,start_time,transfers)
+    timetable = create_tb(open_data(source_data),
+                         open_data_stops(source_data_stops))
+    while True:
+        tb = deepcopy(timetable)
+
+        start_stop_name = load_start_stop(tb)
+        target_stop_name = load_target_stop(tb)
+        start_time_datetime = load_start_time()
+        start_time = time_to_seconds(start_time_datetime)
+        transfers = load_transfers()
+        raptor(tb, start_stop_name, target_stop_name, start_time,
+               transfers)
+
+        continue_or_no = load_yes_no()
+        if continue_or_no == "y":
+            continue
+        elif continue_or_no == "n":
+            print("Thank you for using myraptor!")
+            break
+
 
 
 
