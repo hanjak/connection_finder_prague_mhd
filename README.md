@@ -67,4 +67,4 @@ pandas>=1.3.2
 numpy>=1.21.2
 
 ## Licence
-Mypy is licensed under the terms of the MIT License 
+Myraptor is licensed under the terms of the MIT License 
