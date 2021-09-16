@@ -40,9 +40,21 @@ stop: Anděl,  arrival time: 13:41:20,  departure time: 13:43:00,  change to lin
 stop: Motol,  arrival time: 13:55:00  
 
 ## Installation
-~$ pip install myraptor==3.0.1
 
-~$ python -m myraptor
+#### Install the package with pip:
+
+$ pip install myraptor==3.0.1
+
+$ python -m myraptor
+
+#### OR Clone the repository:
+$ git clone https://github.com/hanjak/connection_finder_prague_mhd
+
+$ pip install -r requirements.txt
+
+$ cd connection_finder_prague_mhd/
+
+$ python myraptor
 
 ## Technologies
 The project is written in Python 3.9
@@ -50,9 +62,9 @@ The project is written in Python 3.9
 ## Requirements
 python >= 3.6
 
-pandas==1.3.2
+pandas>=1.3.2
 
-numpy==1.21.2
+numpy>=1.21.2
 
 ## Licence
 Mypy is licensed under the terms of the MIT License 
