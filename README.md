@@ -20,6 +20,11 @@ Data used in this project are GTFS data publicly available at: https://opendata.
 data_raptor-checkpoint.ipynb.
 In the project are included only data of following transports: Metro, trams and buses PID0 (line numbers < 251). It doesn't include night trams and buses
 
+##TODO
+Include calendar data (so that the app finds connection concerning the day of the week - weekends etc.)
+Errors and exception handling
+More tests
+
 ## How to use Myraptor
 The CLI app requires following inputs:
 1) start_stop and target_stop must be names of the stops in the exactly same format used in GTFS. If you enter wrong format of stop name, all possible stops will be listed. 
@@ -68,3 +73,4 @@ numpy>=1.21.2
 
 ## Licence
 Myraptor is licensed under the terms of the MIT License 
+
